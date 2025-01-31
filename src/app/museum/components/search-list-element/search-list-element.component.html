@@ -1,0 +1,11 @@
+<li class="list-group-item">
+    <div class="card" style="width: 18rem;">
+        <img src="{{ search.getImgSrc().src }}" alt="{{ search.getImgSrc().alt }}">
+        <div class="card-body">
+            <h5>{{ search.randomObjects[0].title }}</h5>
+            <p class="card-text">By {{ search.randomObjects[0].artistDisplayName}}</p>
+            <p class="card-text"><b>Search:</b> {{ search.getSearchInfo()}}</p>
+        </div>
+    </div> 
+</li>
+

@@ -1,0 +1,94 @@
+<!-- Navigation -->
+<div class="btn-group btn-group-justified">
+    <div class="btn-group">
+        <button type="button" class="btn btn-info" (click)="redirect('/dep')">
+            <img src="building.png" alt="Outline of a building" width="33%"><br>
+            Department
+        </button>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-info" (click)="redirect('/loc')">
+            <img src="travel.png" alt="Outline of a compass" width="33%"><br>
+            Location
+        </button>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-info disabled">
+            <img src="gear.png" alt="Outline of a gear" width="33%"><br>
+            Advanced
+        </button>
+    </div>
+</div>
+
+<!-- Form -->
+<div class="container-fluid p-5">
+    <div class="form" id="met-form">
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col m-3">
+                        <label for="query" class="form-label">Your query</label><br>
+                        <input type="text" class="form-control" id="query" name="query" [(ngModel)] ="search.q" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col m-3">
+                        <label for="medium" class="form-label">Specify medium or object type (Examples: Ceramics, Furniture, Paintings, Sculpture, Textiles)</label><br>
+                        <input type="text" class="form-control" id="medium" name="medium" [(ngModel)] ="search.medium">
+                    </div>
+                    <div class="col m-3">
+                        <label for="location" class="form-label">Location (examples: Europe, France, Paris, China, New York)</label><br>
+                        <input type="text" class="form-control" id="location" name="location" [(ngModel)] ="search.geoLocation">
+                    </div>
+                </div>       
+                <div class="row">
+                    <div class="col m-3">
+                        <label for="range_from" class="form-label">Date from</label><br>
+                        <input type="number" class="form-control" id="range_from" name="range_from" min="-8000" max="2024" [(ngModel)] ="search.dateBegin">
+                    </div>
+                    <div class="col m-3">
+                        <label for="range_to" class="form-label">Date to</label><br>
+                        <input type="number" class="form-control" id="range_to" name="range_to" min="-8000" max="2024" [(ngModel)] ="search.dateEnd">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col m-3">
+                        <label for="department" class="form-label">Department</label><br>
+                    <select type="number" class="form-control" id="department" name="department" [(ngModel)] ="search.departmentId">
+                        <option value="0">---Any department---</option> 
+                        <option value="1">American Decorative Arts</option>
+                        <option value="3">Ancient Near Eastern Art</option>
+                        <option value="4">Arms and Armor</option>
+                        <option value="5">Arts of Africa, Oceania, and the Americas</option>
+                        <option value="6">Asian Art</option>
+                        <option value="7">The Cloisters</option>
+                        <option value="8">The Costume Institute</option>
+                        <option value="9">Drawings and Prints</option>
+                        <option value="10">Egyptian Art</option>
+                        <option value="11">European Paintings</option>
+                        <option value="12">European Sculpture and Decorative Arts</option>
+                        <option value="13">Greek and Roman Art</option>
+                        <option value="14">Islamic Art</option>
+                        <option value="15">The Robert Lehman Collection</option>
+                        <option value="16">The Libraries</option>
+                        <option value="17">Medieval Art</option>
+                        <option value="18">Musical Instruments</option>
+                        <option value="19">Photographs</option>
+                        <option value="21">Modern Art</option>
+                    </select>
+                    </div>
+                    <div class="col m-3">
+                        <div class="form-check m-3">
+                            <input type="checkbox" class="form-check-input" id="has_images" name="has_images" [(ngModel)] ="search.hasImages" checked>
+                            <label for="has_images" class="form-check-label">Objects with images only</label><br>
+                            <input type="checkbox" class="form-check-input" id="is_highlight" name="is_highlight" [(ngModel)] ="search.isHighlight">
+                            <label for="is_highlight" class="form-check-label">Highlights from the collection only</label>
+                        </div>
+                    </div>
+                </div>    
+                
+            <button type="submit" class="btn btn-outline-primary m-3">🔍Search</button>
+        </div>
+    </form>
+</div>
+</div>
